@@ -57,8 +57,17 @@ public class PlayerMovement
 
     public void Move()
     {
-        desiredMoveDirection = new Vector3(playerInput.Destination.x * Time.deltaTime * speed, playerRigidbody.velocity.y, playerInput.Destination.y * Time.deltaTime * speed);
+        camForward = mainCam.transform.forward;
+        camRight = mainCam.transform.right;
 
+        camForward.y = 0f;
+        camRight.y = 0f;
+
+        camForward.Normalize();
+        camRight.Normalize();
+
+        desiredMoveDirection = camForward * playerInput.Destination.y * Time.deltaTime * speed + camRight * playerInput.Destination.x * Time.deltaTime * speed; //new Vector3(playerInput.Destination.x * Time.deltaTime * speed, playerRigidbody.velocity.y, playerInput.Destination.y * Time.deltaTime * speed);
+        Debug.Log(desiredMoveDirection);
         if(playerRigidbody != null)
         {
             playerRigidbody.velocity = desiredMoveDirection;
