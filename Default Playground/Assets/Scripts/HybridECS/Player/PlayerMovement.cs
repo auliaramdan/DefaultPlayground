@@ -67,7 +67,7 @@ public class PlayerMovement
         camRight.Normalize();
 
         desiredMoveDirection = camForward * playerInput.Destination.y * Time.deltaTime * speed + camRight * playerInput.Destination.x * Time.deltaTime * speed; //new Vector3(playerInput.Destination.x * Time.deltaTime * speed, playerRigidbody.velocity.y, playerInput.Destination.y * Time.deltaTime * speed);
-        Debug.Log(desiredMoveDirection);
+        //Debug.Log(desiredMoveDirection);
         if(playerRigidbody != null)
         {
             playerRigidbody.velocity = desiredMoveDirection;
