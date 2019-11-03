@@ -129,7 +129,7 @@ public class HordeSystem : JobComponentSystem
             cellCount[cellIndex] += 1;
             cellAlignment[cellIndex] = cellAlignment[cellIndex] + cellAlignment[index];
             cellSeparation[cellIndex] = cellSeparation[cellIndex] + cellSeparation[index];
-            cellIndices[cellIndex] = cellIndex;
+            cellIndices[index] = cellIndex;
         }
     }
     #endregion
